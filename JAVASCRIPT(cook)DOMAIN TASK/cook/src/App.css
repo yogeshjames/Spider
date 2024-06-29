@@ -1,0 +1,24 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.card2{
+  display: flex;
+  flex-wrap: wrap; /* Allow cards to wrap */
+}
+
+.card{
+  display: flex;
+  margin-top:30px;
+  margin-bottom: 50px;
+  margin-left: 100px;
+ 
+}
+
+.card:hover {
+  transform: scale(1.05);
+  transition: transform 0.3s ease-in-out;
+}

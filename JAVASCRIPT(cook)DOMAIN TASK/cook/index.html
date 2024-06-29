@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cooked</title>
+  </head>
+  <body>
+    <style>
+      body {
+        margin: 0;
+        font-family: 'Arial', sans-serif;
+      }
+      
+      .header {
+        position: fixed;
+        display: flex;
+        align-items: center;
+        background-color: grey;
+        width: 100%;
+        height: 50px;
+        top: 0;
+        left: -30px;
+        justify-content: space-between;
+        padding: 0 20px;
+       
+      }
+
+      .form {
+        display: flex;
+        align-items: center;
+      }
+
+      .input {
+        height: 30px;
+        width: 200px;
+        padding: 0 10px;
+        border: 2px solid #ccc;
+        border-right: none;
+        border-radius: 5px 0 0 5px;
+        background: #fff;
+      }
+
+      .button {
+        height: 30px;
+        border: 2px solid #ccc;
+        border-left: none;
+        background: #fff;
+        border-radius: 0 5px 5px 0;
+        padding: 0 10px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+      }
+
+      .button svg {
+        width: 20px; 
+        height: 20px;
+      }
+
+      .input::placeholder {
+        color: #666;
+        font-family: cursive;
+      }
+
+      .top {
+        height: 350px;
+        background-color: #8AAAE5;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .para {
+        color: rgb(8, 106, 96);
+        font-family: cursive;
+        font-size: 24px;
+        position: relative;
+        left: 20px;
+      }
+
+      .svg-container {
+        display: flex;
+        gap: 10px;
+        position: relative;
+        left:-20px
+       
+      }
+
+      .svg-container svg {
+        width: 120px;
+        height: 120px;
+        position: relative;
+        left:-70px;
+        top:30px
+      }
+      .svg-container p {
+        width: 10px;
+        height: 10px;
+        font-size: x-large;
+        position: relative;
+        top:150px;
+        left:-480px;
+        font-family: cursive;
+        white-space: nowrap;
+        color: #fff;
+      }
+      .fav{
+        position:relative;
+        top:10px;
+        height: 0px;
+        width: 0px;
+      }
+    </style>
+    
+    <div class="header">
+      <h1 class="para">COOKED</h1>
+      <form class="form">
+        <select name="recipe" class="input">
+          <option value="Search an ingredient">Search</option>
+        </select>
+       
+       
+        <button class="button">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M22 20L20 22 14 16 14 14 16 14z"></path>
+            <path d="M9,16c-3.9,0-7-3.1-7-7c0-3.9,3.1-7,7-7c3.9,0,7,3.1,7,7C16,12.9,12.9,16,9,16z M9,4C6.2,4,4,6.2,4,9c0,2.8,2.2,5,5,5 c2.8,0,5-2.2,5-5C14,6.2,11.8,4,9,4z"></path>
+            <path d="M13.7 12.5H14.7V16H13.7z" transform="rotate(-44.992 14.25 14.25)"></path>
+          </svg>
+        </button>
+      </form>
+    </div>
+    
+    <div class="top">
+      <div class="svg-container">
+        <!-- Cooking Pot SVG -->
+        <svg fill="#000000" width="800px" height="800px" viewBox="0 0 256 256" id="Flat" xmlns="http://www.w3.org/2000/svg">
+          <path d="M252.7998,102.3999,224,124v60a32.03667,32.03667,0,0,1-32,32H64a32.03667,32.03667,0,0,1-32-32V124L3.2002,102.3999a7.9998,7.9998,0,0,1,9.5996-12.7998L32,104V88A16.01833,16.01833,0,0,1,48,72H208a16.01833,16.01833,0,0,1,16,16v16l19.2002-14.3999a7.9998,7.9998,0,0,1,9.5996,12.7998ZM160,56a8.00039,8.00039,0,0,0,8-8V16a8,8,0,0,0-16,0V48A8.00039,8.00039,0,0,0,160,56Zm-32,0a8.00039,8.00039,0,0,0,8-8V16a8,8,0,0,0-16,0V48A8.00039,8.00039,0,0,0,128,56ZM96,56a8.00039,8.00039,0,0,0,8-8V16a8,8,0,0,0-16,0V48A8.00039,8.00039,0,0,0,96,56Z"/>
+        </svg>
+        <!-- Knife SVG -->
+        <svg fill="#000000" height="800px" width="800px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
+        viewBox="0 0 40.577 40.577" xml:space="preserve">
+     <g>
+       <g id="b170_utensil">
+         <path d="M36.124,18.043c4.467-4.465,5.795-10.381,2.967-13.213c-2.829-2.826-8.747-1.5-13.213,2.967
+           c-3.837,3.838-5.354,8.74-3.916,11.842l-0.598,0.6l-4.465-4.465c2.629-2.627,2.155-4.316,2.155-4.316L9.706,2.113L0,11.816
+           l9.35,9.35c0,0,1.854,0.301,4.312-2.156l4.467,4.463l-0.957,0.959l-0.998-0.996L5.458,34.148l4.311,4.316l10.718-10.715l-1-0.998
+           l0.962-0.957l1.841,1.84l-0.628,0.627l9.908,9.91l4.492-4.494l-9.909-9.908L25.526,24.4l-1.845-1.842l0.604-0.6
+           C27.383,23.398,32.287,21.883,36.124,18.043z M38.191,11.125l-9.347,9.346l-1.081-1.078l9.351-9.348L38.191,11.125z M36.034,8.965
+           l-9.349,9.35l-1.078-1.082l9.351-9.342L36.034,8.965z M32.799,5.73l1.077,1.078l-9.346,9.35l-1.08-1.082L32.799,5.73z"/>
+       </g>
+       <g id="Capa_1_122_">
+       </g>
+     </g>
+     </svg>
+     <img src="src/assets/cook.png">
+     <p>Simple Recipes, Big Flavors</p>
+      </div>
+    </div>
+    <a class="fav" href=""> <svg width="40px" height="40px" viewBox="0 0 1024 1024" fill="#000000" class="icon"  version="1.1" xmlns="http://www.w3.org/2000/svg"><path d="M802.4 967.2c-7.2 0-15.2-1.6-21.6-4.8l-258.4-128.8-252.8 140c-18.4 10.4-41.6 5.6-56-9.6-8.8-9.6-12.8-23.2-11.2-36.8l43.2-285.6L33.6 444C20.8 432 16 414.4 21.6 397.6c4.8-16.8 18.4-28.8 36-31.2l285.6-48L464.8 56c7.2-15.2 22.4-25.6 39.2-26.4 17.6-0.8 33.6 8.8 41.6 24l133.6 256.8 287.2 35.2c17.6 2.4 31.2 13.6 36.8 30.4 5.6 16 1.6 34.4-10.4 46.4L790.4 629.6l55.2 284c2.4 12.8-0.8 26.4-8.8 36.8-8.8 10.4-21.6 16.8-34.4 16.8zM520.8 784.8c7.2 0 15.2 1.6 21.6 4.8l255.2 127.2-54.4-280c-3.2-14.4 1.6-29.6 12-40l200-203.2L672 358.4c-14.4-1.6-28-11.2-34.4-24L506.4 81.6 385.6 340c-6.4 13.6-19.2 23.2-33.6 25.6L70.4 412l208 194.4c11.2 10.4 16 24.8 13.6 40L249.6 928l249.6-137.6c7.2-3.2 14.4-4.8 21.6-5.6z" fill="" /></svg></a>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
