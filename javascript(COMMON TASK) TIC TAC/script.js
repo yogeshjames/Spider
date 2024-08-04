@@ -109,8 +109,6 @@ function resetGame() {
     currentplayer = "X";
     head.textContent = `Player ${currentplayer}'s Move`;
     popup.classList.add("hide");
-    pauseGameButton.classList.remove("hide");
-    resumeGameButton.classList.add("hide");
     
     startTimer();
 }
@@ -118,15 +116,11 @@ function resetGame() {
 function pauseGame() {
     gamepaused = true;
     clearInterval(timer);
-    pauseGameButton.classList.add("hide");
-    resumeGameButton.classList.remove("hide");
 }
 
 function resumeGame() {
     gamepaused = false;
     startTimer();
-    pauseGameButton.classList.remove("hide");
-    resumeGameButton.classList.add("hide");
 }
 
 startTimer();
