@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import './App.css'; 
 
 export default class SignUp extends Component {
   constructor(props) {
@@ -23,21 +24,18 @@ export default class SignUp extends Component {
     const { email, password } = this.state;
 
     if (email !== '' && password !== '') {
-        console.log(1);
       axios.post(`http://localhost:3000/register`, {
         email: email,
         password: password
       })
         .then(response => {
-            console.log(32423)
           this.setState({ heading: 'Registration Successful' });
         })
         .catch(error => {
           console.error('Registration error:', error);
-          this.setState({ heading: 'Registration Failed' }); 
+          this.setState({ heading: 'Registration Failed' });
         });
     } else {
-        console.log(2);
       this.setState({ heading: 'Enter Email and Password' });
     }
   };
@@ -46,58 +44,58 @@ export default class SignUp extends Component {
     const { firstName, lastName, email, password, heading } = this.state;
 
     return (
-      <form onSubmit={this.handleSubmit}>
-        <h3>{heading}</h3>
-        <div className="mb-3">
-          <label>First name</label>
-          <input
-            type="text"
-            className="form-control"
-            placeholder="First name"
-            name="firstName"
-            value={firstName}
-            onChange={this.handleChange}
-          />
-        </div>
-        <div className="mb-3">
-          <label>Last name</label>
-          <input
-            type="text"
-            className="form-control"
-            placeholder="Last name"
-            name="lastName"
-            value={lastName}
-            onChange={this.handleChange}
-          />
-        </div>
-        <div className="mb-3">
-          <label>Email address</label>
-          <input
-            type="email"
-            className="form-control"
-            placeholder="Enter email"
-            name="email"
-            value={email}
-            onChange={this.handleChange}
-          />
-        </div>
-        <div className="mb-3">
-          <label>Password</label>
-          <input
-            type="password"
-            className="form-control"
-            placeholder="Enter password"
-            name="password"
-            value={password}
-            onChange={this.handleChange}
-          />
-        </div>
-        <div className="d-grid">
-          <button type="submit" className="btn btn-primary">
+      <div className="signup-form-container">
+        <form onSubmit={this.handleSubmit} className="signup-form">
+          <h2>{heading}</h2>
+          <div className="form-group">
+            <label htmlFor="firstName">First Name</label>
+            <input
+              id="firstName"
+              type="text"
+              name="firstName"
+              value={firstName}
+              onChange={this.handleChange}
+              placeholder="First Name"
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="lastName">Last Name</label>
+            <input
+              id="lastName"
+              type="text"
+              name="lastName"
+              value={lastName}
+              onChange={this.handleChange}
+              placeholder="Last Name"
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="email">Email Address</label>
+            <input
+              id="email"
+              type="email"
+              name="email"
+              value={email}
+              onChange={this.handleChange}
+              placeholder="Enter Email"
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="password">Password</label>
+            <input
+              id="password"
+              type="password"
+              name="password"
+              value={password}
+              onChange={this.handleChange}
+              placeholder="Enter Password"
+            />
+          </div>
+          <button type="submit" className="submit-btn">
             {heading}
           </button>
-        </div>
-      </form>
+        </form>
+      </div>
     );
   }
 }
