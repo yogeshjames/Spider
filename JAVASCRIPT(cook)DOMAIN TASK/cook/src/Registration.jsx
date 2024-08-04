@@ -1,101 +1,101 @@
 import React, { Component } from 'react';
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './App.css'; 
 
-export default class SignUp extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      firstName: '',
-      lastName: '',
-      email: '',
-      password: '',
-      heading: 'Sign Up' // Initialize heading in state
-    };
-  }
+const Registration = () => {
+  const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    password: ''
+  });
 
-  handleChange = (e) => {
-    this.setState({ [e.target.name]: e.target.value });
+  const navigate = useNavigate();
+  const [heading, setHeading] = useState('Sign Up');
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prevState => ({
+      ...prevState,
+      [name]: value
+    }));
   };
 
-  handleSubmit = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-
-    const { email, password } = this.state;
+    const { email, password } = formData;
 
     if (email !== '' && password !== '') {
-      axios.post(`http://localhost:3000/register`, {
-        email: email,
-        password: password
-      })
+      axios.post('http://localhost:3000/register', { email, password })
         .then(response => {
-          this.setState({ heading: 'Registration Successful' });
+          setHeading('Registration Successful')
+          navigate("/")
         })
         .catch(error => {
           console.error('Registration error:', error);
-          this.setState({ heading: 'Registration Failed' });
+          setHeading('Registration Failed');
         });
     } else {
-      this.setState({ heading: 'Enter Email and Password' });
+      setHeading('Enter Email and Password');
     }
   };
 
-  render() {
-    const { firstName, lastName, email, password, heading } = this.state;
+  return (
+    <div className="signup-form-container">
+      <form onSubmit={handleSubmit} className="signup-form">
+        <h2>{heading}</h2>
+        <div className="form-group">
+          <label htmlFor="firstName">First Name</label>
+          <input
+            id="firstName"
+            type="text"
+            name="firstName"
+            value={formData.firstName}
+            onChange={handleChange}
+            placeholder="First Name"
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="lastName">Last Name</label>
+          <input
+            id="lastName"
+            type="text"
+            name="lastName"
+            value={formData.lastName}
+            onChange={handleChange}
+            placeholder="Last Name"
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="email">Email Address</label>
+          <input
+            id="email"
+            type="email"
+            name="email"
+            value={formData.email}
+            onChange={handleChange}
+            placeholder="Enter Email"
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="password">Password</label>
+          <input
+            id="password"
+            type="password"
+            name="password"
+            value={formData.password}
+            onChange={handleChange}
+            placeholder="Enter Password"
+          />
+        </div>
+        <button type="submit" className="submit-btn">
+          {heading}
+        </button>
+      </form>
+    </div>
+  );
+};
 
-    return (
-      <div className="signup-form-container">
-        <form onSubmit={this.handleSubmit} className="signup-form">
-          <h2>{heading}</h2>
-          <div className="form-group">
-            <label htmlFor="firstName">First Name</label>
-            <input
-              id="firstName"
-              type="text"
-              name="firstName"
-              value={firstName}
-              onChange={this.handleChange}
-              placeholder="First Name"
-            />
-          </div>
-          <div className="form-group">
-            <label htmlFor="lastName">Last Name</label>
-            <input
-              id="lastName"
-              type="text"
-              name="lastName"
-              value={lastName}
-              onChange={this.handleChange}
-              placeholder="Last Name"
-            />
-          </div>
-          <div className="form-group">
-            <label htmlFor="email">Email Address</label>
-            <input
-              id="email"
-              type="email"
-              name="email"
-              value={email}
-              onChange={this.handleChange}
-              placeholder="Enter Email"
-            />
-          </div>
-          <div className="form-group">
-            <label htmlFor="password">Password</label>
-            <input
-              id="password"
-              type="password"
-              name="password"
-              value={password}
-              onChange={this.handleChange}
-              placeholder="Enter Password"
-            />
-          </div>
-          <button type="submit" className="submit-btn">
-            {heading}
-          </button>
-        </form>
-      </div>
-    );
-  }
-}
+export default Registration;
