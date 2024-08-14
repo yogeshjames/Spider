@@ -131,3 +131,16 @@ ReactDOM.createRoot(document.getElementById('root')).render(
 
 
 /// in my case i have impleted it only in the  book.jsx file
+
+
+ const books = useSelector((state) => state.books);
+
+ insinde my store.js it takes the books thing
+
+
+ useSelector: Extracts and returns specific pieces of state from the Redux store for use in your component. It ensures that the component re-renders when the selected state changes.
+
+useDispatch: Provides access to the dispatch function, allowing you to send actions to the Redux store to update the state.
+
+
+sooo basicallly useSelector will 
