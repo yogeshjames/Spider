@@ -1,0 +1,45 @@
+
+TASK 1(FRONT END LAZYSIZE);
+
+lazy size is  just used to load the images only when the user vies it it maks the 
+insitail loading of website very easy also it makes the image responsive on its own it can be used parally wirh js or react or any frmaework
+lets say  i have to diplay a image only upon hovering it normally it wd be loaded before the hover but will not be dilsplayed but using lazysize it will
+lkoad the image only aftet if i hover through it and display it 
+Picturefill is a complete solution for making images responsive in all browsers.
+lazySizes with respimg is a lighter, more focused solution that only handles the essential parts of responsive images and relies on another tool (lazySizes) to work.
+
+***
+ The responsive image standard in 
+ HTML allows you to provide different versions 
+ of an image for different screen sizes and resolutions. This ensures that users download the best
+  version of an image for their device, saving bandwidth and improving load times.
+***
+The lazySizes library is built on the responsive
+ image standard, meaning it understands the basic principles of serving the right image for the right device. 
+ The respimg extension extends this functionality, allowing lazySizes to manage responsive images, 
+but in a more lightweight and focused manner.
+
+`this is the diff between partially fill and picture fill
+
+Full Support: The srcset attribute allows you to provide a list of image sources with different resolutions (e.g., 1x, 2x for Retina displays) or different widths, letting the browser choose the best one based on the device.
+Partial Support: The respimg extension focuses on essential use cases, such as choosing the correct image based on resolution. However, it might not support all variations, such as complex width descriptors combined with the sizes attribute.
+sizes Attribute:
+
+Full Support: The sizes attribute works with srcset to tell the browser how wide the image will be in the layout, helping it choose the appropriate image from the srcset.
+Partial Support: This attribute is sometimes omitted or simplified in partial polyfills like the respimg extension because it requires the browser to make complex calculations about layout. The extension might instead focus on simpler scenarios.
+
+
+2. React.lazy and Suspense for components 
+loading on demand or in parallel” is lazy-loading.
+Opposite of lazy-loading is eager-loading. Here everything is loaded no matter if you use it or not.
+
+https://www.freecodecamp.org/news/how-to-use-react-lazy-and-suspense-for-components-lazy-loading-8d420ecac58/
+
+THIS SITE CLEARLY EXPLAINS ALL THE DIFFERNCE BETWEEN EAGER LOADING AND LAZY LOADING 
+
+
+***
+Even though we use PDFPreview only on user click, all code related to it is included in the app bundle:
+![alt text](image.png)
+This is a development environment. In production, the sizes would be significantly smaller. Still, we’re not splitting the code optimally.
+
