@@ -1,11 +1,14 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import useDarkMode from 'use-dark-mode';
 import React from 'react';
-
+import Toggle from './Toggle';
 function Header() {
+
+  window.global=globalThis;
   const navigate = useNavigate();
   const [activeItem, setActiveItem] = useState('');
-
+  const darkMode = useDarkMode(false);
   useEffect(() => {
     const auth = window.localStorage.getItem("auth");
     if (auth === "false" || auth === null) {
@@ -28,7 +31,8 @@ function Header() {
           Home
         </li>
         <li
-          onClick={() => handleItemClick('/Favourites')}
+          onClick={() => handleItemClick('/Favourites')
+          }
           className={`text-lg cursor-pointer hover:text-yellow-300 `}
         >
           Favourites
@@ -44,6 +48,9 @@ function Header() {
           className={`text-lg cursor-pointer hover:text-yellow-300 `}
         >
           Bought Books
+        </li>
+        <li>
+        <Toggle />
         </li>
       </ul>
       <button

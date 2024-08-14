@@ -11,11 +11,13 @@ import Recovery from './Recovery.jsx';
 import Reviews from './Reviews.jsx'
 import './index.css'
 import Profile from './Profile.jsx';
+import { Provider } from 'react-redux';
+import store from './store';
 import { BrowserRouter ,Routes,Route } from 'react-router-dom'
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
 <BrowserRouter>
-
+<Provider store={store}>
 <Routes>
   <Route path='/' element={<Book/>} ></Route>
   <Route path="/register" element={<Register />} />
@@ -27,6 +29,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <Route path="/Recovery" element={<Recovery />} />
   <Route path="/review" element={<Reviews/>} />
 </Routes>
+</Provider>
 </BrowserRouter>
    
   </React.StrictMode>,

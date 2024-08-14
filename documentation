@@ -43,3 +43,91 @@ Even though we use PDFPreview only on user click, all code related to it is incl
 ![alt text](image.png)
 This is a development environment. In production, the sizes would be significantly smaller. Still, we’re not splitting the code optimally.
 
+
+
+
+suspense will by default will add a spinner emoji 
+
+Suspense accepts a fallback component which allows you to display any React component as a loading state. The following example shows how this works. The avatar is only rendered when the button is clicked, where a request is then made to retrieve the code necessary for the suspended AvatarComponent. In the meantime, the fallback loading component is shown.
+ <Suspense fallback={renderLoader()}>
+
+ instead of this render loader u can use anyther componet u want 
+    <AvatarComponent />
+  </Suspense>
+
+
+  return (
+    <>
+      <h1>{artist.name}</h1>
+      <Suspense fallback={<Loading />}>
+        <Albums artistId={artist.id} />
+      </Suspense>
+    </>
+  );
+}
+
+function Loading() {
+  return <h2>🌀 Loading...</h2>;
+}
+
+
+faced this error while using dark mode 
+https://stackoverflow.com/questions/72114775/vite-global-is-not-defined
+
+solution::
+
+
+yes, i am facing the same issue. As soon i use the hook, my app crashes with an error use-dark-mode.m.js:1 Uncaught ReferenceError: global is not defined. I am using vite with react 17
+
+The error goes away if i put var global = globalThis; in my index.html file
+
+
+
+
+
+in taliwnd classs just add a seperate for dark and inside the tailwindconfig.js add this 
+darkMode: 'class',
+
+
+
+now using redux 
+
+here its basically a paakage which manages all  my states in a single file and im saving it in store.js file 
+
+isnide this declare and use all your use states 
+
+and in jsx file handle this way 
+
+
+
+
+
+
+
+
+
+
+Redux is ideal for large-scale applications where predictability and explicit state changes are crucial. It shines in applications where state management complexity can grow over time.
+
+MobX is a great choice for smaller to medium-sized applications where ease of use and performance are priorities. Its minimal boilerplate and reactive nature make it a strong contender for quickly scaling applications with simple state needs.
+
+in a single line i can set many states like in a single pass or call i can chnage loading , add value , and anything ekse 
+
+To use the store.js in your React application, you need to wrap your application with the Provider component from react-redux, which makes the Redux store available to all components in the app.
+
+In your main.jsx or index.js file (wherever you render your React app), you need to wrap the app with the Provider and pass in the store.
+
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import App from './App';
+import { Provider } from 'react-redux';
+import store from './store'; // Make sure this path is correct
+
+ReactDOM.createRoot(document.getElementById('root')).render(
+  <Provider store={store}>
+    <App />
+  </Provider>
+);
+
+
+/// in my case i have impleted it only in the  book.jsx file

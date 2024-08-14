@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { AiOutlineDelete, AiOutlineHeart, AiFillHeart, AiOutlinePlus } from 'react-icons/ai';
 import axios from 'axios';
-import Bookmodal from './Bookmodal';
+import { lazy } from 'react';
+import { Suspense } from 'react';
+import ClipLoader from "react-spinners/ClipLoader";
+const Bookmodal = lazy(() => import('./Bookmodal'));
 import { Link } from 'react-router-dom';
 import 'lazysizes';
 // import a plugin
@@ -62,7 +65,7 @@ function Bookcard({ book, from, c }) {
   }
 
   return (
-    <div className="bg-white shadow-lg rounded-lg p-4 relative w-60 m-4">
+    <div className="bg-white  dark:bg-slate-400    shadow-lg rounded-lg p-4 relative w-60 m-4">
       <img
         data-src={book.imageLinks?.thumbnail}
         data-sizes="auto"//i can add data-srcst if i want to customize diff image for diff width or els eno need
@@ -90,7 +93,16 @@ function Bookcard({ book, from, c }) {
           </button>
         )}
       </div>
-      {isopen && <Bookmodal is={is} book={book} />}
+      {isopen && 
+      
+      <Suspense fallback={<ClipLoader
+        color="black"
+        size={150}
+        aria-label="Loading Spinner"
+        data-testid="loader"
+      />}>
+     <Bookmodal is={is} book={book} />
+    </Suspense>}
 
       <div>
       <Link 
